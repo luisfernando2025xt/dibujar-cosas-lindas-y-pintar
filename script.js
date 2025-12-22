@@ -1,58 +1,50 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
-const colorPicker = document.getElementById("colorPicker");
-const brushSize = document.getElementById("brushSize");
-const clearBtn = document.getElementById("clearBtn");
-const saveBtn = document.getElementById("saveBtn");
+const color = document.getElementById("color");
+const size = document.getElementById("size");
+const clear = document.getElementById("clear");
+const save = document.getElementById("save");
 
-canvas.width = window.innerWidth * 0.9;
-canvas.height = window.innerHeight * 0.6;
+canvas.width = 900;
+canvas.height = 500;
 
 let drawing = false;
 
-function startDraw(e) {
+canvas.addEventListener("mousedown", (e) => {
   drawing = true;
-  draw(e);
-}
-
-function endDraw() {
-  drawing = false;
   ctx.beginPath();
-}
+  ctx.moveTo(e.offsetX, e.offsetY);
+});
 
-function draw(e) {
+canvas.addEventListener("mousemove", (e) => {
   if (!drawing) return;
 
-  const rect = canvas.getBoundingClientRect();
-  const x = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left;
-  const y = (e.touches ? e.touches[0].clientY : e.clientY) - rect.top;
-
-  ctx.lineWidth = brushSize.value;
+  ctx.lineWidth = size.value;
   ctx.lineCap = "round";
-  ctx.strokeStyle = colorPicker.value;
+  ctx.strokeStyle = color.value;
 
-  ctx.lineTo(x, y);
+  ctx.lineTo(e.offsetX, e.offsetY);
   ctx.stroke();
+});
+
+canvas.addEventListener("mouseup", () => {
+  drawing = false;
   ctx.beginPath();
-  ctx.moveTo(x, y);
-}
+});
 
-canvas.addEventListener("mousedown", startDraw);
-canvas.addEventListener("mouseup", endDraw);
-canvas.addEventListener("mousemove", draw);
+canvas.addEventListener("mouseleave", () => {
+  drawing = false;
+  ctx.beginPath();
+});
 
-canvas.addEventListener("touchstart", startDraw);
-canvas.addEventListener("touchend", endDraw);
-canvas.addEventListener("touchmove", draw);
-
-clearBtn.addEventListener("click", () => {
+clear.addEventListener("click", () => {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 });
 
-saveBtn.addEventListener("click", () => {
+save.addEventListener("click", () => {
   const link = document.createElement("a");
-  link.download = "mi-dibujo-lindo.png";
-  link.href = canvas.toDataURL();
+  link.download = "mi-dibujo.png";
+  link.href = canvas.toDataURL("image/png");
   link.click();
 });

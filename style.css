@@ -1,7 +1,7 @@
 body {
   margin: 0;
-  font-family: 'Comic Sans MS', 'Arial', sans-serif;
-  background: linear-gradient(180deg, #ffe6f2, #fff);
+  font-family: Comic Sans MS, Arial, sans-serif;
+  background: linear-gradient(#ffe6f2, #ffffff);
   text-align: center;
 }
 
@@ -11,11 +11,11 @@ h1 {
 }
 
 .tools {
-  margin: 10px;
   display: flex;
   justify-content: center;
   gap: 10px;
   flex-wrap: wrap;
+  margin-bottom: 10px;
 }
 
 button {
@@ -32,15 +32,12 @@ button:hover {
 }
 
 canvas {
+  background: white;
   border: 4px dashed #ff99cc;
   border-radius: 20px;
-  background: white;
-  margin: 10px auto;
+  width: 900px;
+  height: 500px;
   display: block;
-  touch-action: none;
-}
-
-.hint {
-  color: #cc3399;
-  margin-bottom: 20px;
+  margin: 0 auto;
+  cursor: crosshair;
 }

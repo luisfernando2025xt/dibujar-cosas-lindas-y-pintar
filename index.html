@@ -8,25 +8,32 @@
 </head>
 <body>
 
-<h1>🎨 Dibuja y Juega</h1>
+<div class="app">
 
-<div class="top">
-  🔑 Llaves: <span id="keys">0</span>
+  <h1>🎨 Dibuja y Juega</h1>
+
+  <div class="top">
+    🔑 Llaves: <span id="keys">0</span>
+  </div>
+
+  <canvas id="canvas" width="350" height="350"></canvas>
+
+  <div class="buttons">
+    <button id="normal">🖌️ Normal</button>
+    <button id="rainbow">🌈 Arcoíris</button>
+    <button id="star">⭐ Estrella</button>
+    <button id="save">💾 Guardar</button>
+    <button id="chest">🎁 Cofre</button>
+  </div>
+
+  <div class="missions-box">
+    <h2>🧭 Misión</h2>
+    <div id="missions"></div>
+  </div>
+
 </div>
-
-<canvas id="canvas" width="350" height="350"></canvas>
-
-<div class="buttons">
-  <button id="normal">🖌️ Normal</button>
-  <button id="rainbow">🌈 Arcoíris</button>
-  <button id="star">⭐ Estrella</button>
-  <button id="save">💾 Guardar</button>
-  <button id="chest">🎁 Cofre</button>
-</div>
-
-<h2>🧭 Misión</h2>
-<div id="missions"></div>
 
 <script src="script.js"></script>
 </body>
+
 </html>

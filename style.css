@@ -1,43 +1,42 @@
 body {
-  margin: 0;
-  font-family: Comic Sans MS, Arial, sans-serif;
-  background: linear-gradient(#ffe6f2, #ffffff);
-  text-align: center; 
-}
-
-h1 {
-  color: #ff4da6;
-  margin-top: 15px;
-}
-
-.tools {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-bottom: 10px;
-}
-
-button {
-  background: #ffb3d9;
-  border: none;
-  border-radius: 12px;
-  padding: 8px 14px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-button:hover {
-  background: #ff80bf;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: #fef6ff;
 }
 
 canvas {
+  border: 4px solid #ffb6e6;
+  border-radius: 16px;
   background: white;
-  border: 4px dashed #ff99cc;
-  border-radius: 20px;
-  width: 900px;
-  height: 500px;
-  display: block;
-  margin: 0 auto;
-  cursor: crosshair;
+  margin: 10px;
+  touch-action: none;
+}
+
+.buttons button {
+  margin: 4px;
+  padding: 10px 14px;
+  font-size: 16px;
+  border-radius: 12px;
+  border: none;
+  background: #ffd6f5;
+  cursor: pointer;
+}
+
+.top {
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+
+.mission {
+  background: #e6f7ff;
+  padding: 10px 14px;
+  border-radius: 14px;
+  width: fit-content;
+  margin: auto;
+  font-weight: bold;
+}
+
+.mission.done {
+  background: #d4ffd4;
+  text-decoration: line-through;
 }
